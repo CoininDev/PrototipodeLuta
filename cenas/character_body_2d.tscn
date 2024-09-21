@@ -1,0 +1,100 @@
+[gd_scene load_steps=16 format=3 uid="uid://brctfugvq5yex"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_e8gub"]
+[ext_resource type="Script" path="res://scripts/States/Idle.gd" id="3_1hyoa"]
+[ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_kvlqf"]
+[ext_resource type="Script" path="res://scripts/States/Move.gd" id="4_kvc8p"]
+[ext_resource type="Script" path="res://scripts/States/Pulo.gd" id="5_co657"]
+[ext_resource type="Script" path="res://scripts/States/Fall.gd" id="6_a3uad"]
+[ext_resource type="Script" path="res://scripts/States/Hitstun.gd" id="7_nhkxi"]
+[ext_resource type="Script" path="res://scripts/States/Bloqueio.gd" id="8_6knus"]
+[ext_resource type="Script" path="res://scripts/States/HitstunAereo.gd" id="8_gf2eh"]
+[ext_resource type="Script" path="res://scripts/States/AtaqueAereo.gd" id="9_de65s"]
+[ext_resource type="Script" path="res://scripts/States/Ataque.gd" id="10_lwetg"]
+[ext_resource type="Script" path="res://scripts/label.gd" id="12_hg8h6"]
+[ext_resource type="Script" path="res://scripts/States/Morto.gd" id="13_3q44w"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w0vau"]
+radius = 17.0
+height = 72.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqtvw"]
+size = Vector2(40, 20)
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["personagem"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_e8gub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_w0vau")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(41, -6)
+shape = SubResource("RectangleShape2D_mqtvw")
+debug_color = Color(0.998937, 0, 0.128371, 0.42)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_kvlqf")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("3_1hyoa")
+player = NodePath("../..")
+
+[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "hitbox")]
+script = ExtResource("4_kvc8p")
+player = NodePath("../..")
+hitbox = NodePath("../../hitbox")
+
+[node name="Pulo" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("5_co657")
+player = NodePath("../..")
+
+[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("6_a3uad")
+player = NodePath("../..")
+
+[node name="Hitstun" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("7_nhkxi")
+player = NodePath("../..")
+
+[node name="HitstunAereo" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("8_gf2eh")
+player = NodePath("../..")
+
+[node name="Bloqueio" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("8_6knus")
+player = NodePath("../..")
+
+[node name="Ataque" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "anim", "hitbox", "hitbox_col")]
+script = ExtResource("10_lwetg")
+player = NodePath("../..")
+anim = NodePath("../../AnimationPlayer")
+hitbox = NodePath("../../hitbox")
+hitbox_col = NodePath("../../hitbox/CollisionShape2D")
+
+[node name="AtaqueAereo" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "anim", "hitbox", "hitbox_col")]
+script = ExtResource("9_de65s")
+player = NodePath("../..")
+anim = NodePath("../../AnimationPlayer")
+hitbox = NodePath("../../hitbox")
+hitbox_col = NodePath("../../hitbox/CollisionShape2D")
+
+[node name="Morto" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("13_3q44w")
+player = NodePath("../..")
+
+[node name="Label" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
+offset_left = -19.0
+offset_top = -59.0
+offset_right = 35.0
+offset_bottom = -36.0
+text = "asdfasdf"
+script = ExtResource("12_hg8h6")
+state_machine = NodePath("../StateMachine")
