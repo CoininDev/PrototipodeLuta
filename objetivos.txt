@@ -1,0 +1,20 @@
+Erros:
+    - Ataques são aplicados no final, e não coincidindo com a animação
+    - Má organização na estrututura e nomes inconsistentes
+    - Inverter personagem bugado.
+
+
+Coisas feitas:
+    - Máquina de estados
+    - Recursos
+
+Coisas em processo:
+    - Animações e integração de sprites
+
+Coisas para fazer:
+    - Mais conteúdo (personagens, ataques, etc)
+    - Tela de seleção
+    - Camera + Mapa aberto como butouden
+    - GUI
+    - Energia
+    - Feedback

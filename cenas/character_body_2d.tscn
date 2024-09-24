@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://brctfugvq5yex"]
+[gd_scene load_steps=20 format=3 uid="uid://brctfugvq5yex"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_e8gub"]
+[ext_resource type="Shader" path="res://chroma key.gdshader" id="2_qr2h4"]
 [ext_resource type="Script" path="res://scripts/States/Idle.gd" id="3_1hyoa"]
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="3_kvlqf"]
 [ext_resource type="Script" path="res://scripts/States/Move.gd" id="4_kvc8p"]
@@ -15,6 +16,12 @@
 [ext_resource type="Script" path="res://scripts/States/Morto.gd" id="13_3q44w"]
 [ext_resource type="Script" path="res://scripts/States/Voo.gd" id="13_y6380"]
 [ext_resource type="Script" path="res://scripts/States/moveVoo.gd" id="14_qd07h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_getsc"]
+shader = ExtResource("2_qr2h4")
+shader_parameter/chroma_key_color = Color(0, 1, 0.313726, 1)
+shader_parameter/pickup_range = 0.594
+shader_parameter/fade_amount = 0.1
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w0vau"]
 radius = 17.0
@@ -31,6 +38,7 @@ animspr = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_getsc")
 animation = &"atk1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -43,7 +51,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(41, -6)
+position = Vector2(40, -15)
 shape = SubResource("RectangleShape2D_mqtvw")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
