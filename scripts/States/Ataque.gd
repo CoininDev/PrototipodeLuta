@@ -1,7 +1,6 @@
 extends State
 class_name AtaqueState
 
-@export var player: Player
 @export var anim: AnimationPlayer
 @export var hitbox: Area2D
 @export var hitbox_col: CollisionShape2D
@@ -11,6 +10,7 @@ func enter():
 	player.velocity.x = 0
 	anim.play(player.current_attack.animation)
 	anim.animation_finished.connect(_on_anim_end)
+	player.animspr.play(player.current_attack.sprites_name)
 
 func _on_anim_end(_anim_name: StringName):
 	emit_signal("Transitioned", self, "idle")

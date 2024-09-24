@@ -20,8 +20,3 @@ shape = SubResource("RectangleShape2D_clt3a")
 position = Vector2(177, 308)
 scale = Vector2(2, 2)
 resource = ExtResource("2_76ar5")
-
-[node name="CharacterBody2D2" parent="." instance=ExtResource("1_jb75e")]
-position = Vector2(746, 296)
-scale = Vector2(2, 2)
-dummy = true

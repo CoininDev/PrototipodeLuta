@@ -1,12 +1,16 @@
-[gd_resource type="Resource" script_class="CharResource" load_steps=4 format=3 uid="uid://c8uhtftyp0lmo"]
+[gd_resource type="Resource" script_class="CharResource" load_steps=6 format=3 uid="uid://c8uhtftyp0lmo"]
 
 [ext_resource type="Resource" uid="uid://ca4tad6l3mdlb" path="res://rsrc/attacks/attack1.tres" id="1_8jmww"]
 [ext_resource type="AnimationLibrary" uid="uid://maqr08wr7msh" path="res://rsrc/animlibs/Teste.res" id="1_il7r3"]
 [ext_resource type="Script" path="res://scripts/char_resource.gd" id="2_4tktg"]
+[ext_resource type="Texture2D" uid="uid://csn3qhmkm8yi0" path="res://rsrc/spr/kuririnicon.png" id="3_ysui3"]
+[ext_resource type="SpriteFrames" uid="uid://bg6kdf88ogkwm" path="res://rsrc/spr/kuririn.tres" id="5_cl6ja"]
 
 [resource]
 script = ExtResource("2_4tktg")
-name = "Teste"
+name = "Kuririn"
+icon = ExtResource("3_ysui3")
 animations = ExtResource("1_il7r3")
+sprites = ExtResource("5_cl6ja")
 health = 100.0
 attacks = [ExtResource("1_8jmww")]

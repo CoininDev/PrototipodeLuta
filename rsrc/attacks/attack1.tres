@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_olw75")
 animation = "Teste/attack"
+sprites_name = &"atk1"
 damage = 10.0

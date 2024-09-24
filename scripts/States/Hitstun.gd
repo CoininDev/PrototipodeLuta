@@ -2,7 +2,6 @@ extends State
 class_name HitstunState
 
 var timer: Timer
-@export var player : Player
 
 func enter():
 	player.velocity.x = 0

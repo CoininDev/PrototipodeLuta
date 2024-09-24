@@ -13,9 +13,11 @@ signal Die
 @export var defesa: bool
 var current_attack: Attack = null
 
+@export var animspr: AnimatedSprite2D 
 #move
-var direction: int
-var dir_switch: int
+var dir_x: int
+var dir_y: int
+var dir_x_switch: int
 
 func damage(dano:float) -> void:
 	emit_signal("Hit")
@@ -28,22 +30,27 @@ func damage(dano:float) -> void:
 	print(vida)
 
 func _ready() -> void:
-	dir_switch = 1
+	dir_x_switch = 1
 	if resource:
 		vida = resource.health
 		$AnimationPlayer.add_animation_library("Teste",resource.animations)
+		$AnimatedSprite2D.sprite_frames = resource.sprites
 	
 	for state in $StateMachine.get_children():
 		if state.has_method("_on_hit"):
 			Hit.connect(state._on_hit)
 		if state.has_method("_on_die"):
 			Die.connect(state._on_die)
+	
+	
 func die():
 	emit_signal("Die")
 
 func _physics_process(_delta: float) -> void:
-	direction = Input.get_axis("ui_left", "ui_right")
-	if direction and dir_switch != direction:
+	dir_x = Input.get_axis("l", "r")
+	dir_y = Input.get_axis("up", "down")
+	if dir_x != 0 and dir_x_switch != dir_x:
 		$hitbox.scale.x *= -1
-		dir_switch = direction
+		$AnimatedSprite2D.scale.x = dir_x_switch
+		dir_x_switch = dir_x
 	move_and_slide()

@@ -2,7 +2,8 @@ extends Resource
 class_name CharResource
 
 @export var name: String
-@export var icon: Image
+@export var icon: Texture2D
 @export var animations: AnimationLibrary
+@export var sprites: SpriteFrames
 @export var health: float
 @export var attacks: Array

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://brctfugvq5yex"]
+[gd_scene load_steps=18 format=3 uid="uid://brctfugvq5yex"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_e8gub"]
 [ext_resource type="Script" path="res://scripts/States/Idle.gd" id="3_1hyoa"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://scripts/States/Ataque.gd" id="10_lwetg"]
 [ext_resource type="Script" path="res://scripts/label.gd" id="12_hg8h6"]
 [ext_resource type="Script" path="res://scripts/States/Morto.gd" id="13_3q44w"]
+[ext_resource type="Script" path="res://scripts/States/Voo.gd" id="13_y6380"]
+[ext_resource type="Script" path="res://scripts/States/moveVoo.gd" id="14_qd07h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w0vau"]
 radius = 17.0
@@ -21,10 +23,15 @@ height = 72.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqtvw"]
 size = Vector2(40, 20)
 
-[node name="CharacterBody2D" type="CharacterBody2D" groups=["personagem"]]
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("animspr") groups=["personagem"]]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_e8gub")
+animspr = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+animation = &"atk1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_w0vau")
@@ -47,10 +54,10 @@ script = ExtResource("3_kvlqf")
 script = ExtResource("3_1hyoa")
 player = NodePath("../..")
 
-[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "hitbox")]
+[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox", "player")]
 script = ExtResource("4_kvc8p")
-player = NodePath("../..")
 hitbox = NodePath("../../hitbox")
+player = NodePath("../..")
 
 [node name="Pulo" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("5_co657")
@@ -72,22 +79,30 @@ player = NodePath("../..")
 script = ExtResource("8_6knus")
 player = NodePath("../..")
 
-[node name="Ataque" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "anim", "hitbox", "hitbox_col")]
+[node name="Ataque" type="Node" parent="StateMachine" node_paths=PackedStringArray("anim", "hitbox", "hitbox_col", "player")]
 script = ExtResource("10_lwetg")
-player = NodePath("../..")
 anim = NodePath("../../AnimationPlayer")
 hitbox = NodePath("../../hitbox")
 hitbox_col = NodePath("../../hitbox/CollisionShape2D")
+player = NodePath("../..")
 
-[node name="AtaqueAereo" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "anim", "hitbox", "hitbox_col")]
+[node name="AtaqueAereo" type="Node" parent="StateMachine" node_paths=PackedStringArray("anim", "hitbox", "hitbox_col", "player")]
 script = ExtResource("9_de65s")
-player = NodePath("../..")
 anim = NodePath("../../AnimationPlayer")
 hitbox = NodePath("../../hitbox")
 hitbox_col = NodePath("../../hitbox/CollisionShape2D")
+player = NodePath("../..")
 
 [node name="Morto" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("13_3q44w")
+player = NodePath("../..")
+
+[node name="Voo" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("13_y6380")
+player = NodePath("../..")
+
+[node name="MoveVoo" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("14_qd07h")
 player = NodePath("../..")
 
 [node name="Label" type="Label" parent="." node_paths=PackedStringArray("state_machine")]

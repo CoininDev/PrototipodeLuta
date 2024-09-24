@@ -1,27 +1,24 @@
 extends State
 class_name IdleState
 
-@export var player: Player
 
 func enter():
 	player.velocity.x = 0
+	player.velocity.y = 0
+	player.animspr.play("idle")
 
 func update(_delta:float):
 	##Transitions
-	if player.direction != 0 and !player.dummy:
+	if player.dir_x != 0 and !player.dummy:
 		emit_signal("Transitioned", self, "move")
 	if !player.is_on_floor():
 		emit_signal("Transitioned", self, "fall")
-	if Input.is_action_just_pressed("ui_up") and !player.dummy:
+	if Input.is_action_just_pressed("up") and !player.dummy:
 		emit_signal("Transitioned", self, "pulo")
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("down"):
 		emit_signal("Transitioned", self, "bloqueio")
 	
-	##Ataques
-	if Input.is_action_just_pressed("ui_accept") and !player.dummy:
-		player.current_attack = player.resource.attacks[0]
-		emit_signal("Transitioned", self, "ataque")
-	##...
+	attack(false)
 
 func _on_hit():
 	emit_signal("Transitioned", self, "hitstun")
