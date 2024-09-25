@@ -18,11 +18,14 @@ func attack(aereo:bool) -> void:
 	if Input.is_action_just_pressed("atk2") and !player.dummy:
 		player.current_attack = player.resource.attacks[1]
 		attacked = true
+	if Input.is_action_just_pressed("atk3") and !player.dummy:
+		player.current_attack = player.resource.attacks[2]
+		attacked = true
 	
 	if attacked:
 		if aereo:
-			emit_signal("Transitioned", self, "ataqueAereo")
+			emit_signal("Transitioned", self, "fallingAttack")
 		else:
-			emit_signal("Transitioned", self, "ataque")
+			emit_signal("Transitioned", self, "attack")
 	
 	##...

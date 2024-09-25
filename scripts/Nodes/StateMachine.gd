@@ -24,10 +24,12 @@ func _ready() -> void:
 	current_state.active = true
 
 func _process(delta : float) -> void:
-	current_state.update(delta)
+	if !$"..".dummy:
+		current_state.update(delta)
 
 func _physics_process(delta : float) -> void:
-	current_state.physics_update(delta)
+	if !$"..".dummy:
+		current_state.physics_update(delta)
 
 func on_state_transitioned(state : State, new_state_name : String) -> void:
 	if state != current_state:

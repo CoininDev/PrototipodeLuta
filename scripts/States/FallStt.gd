@@ -1,5 +1,5 @@
 extends State
-class_name FallState
+class_name FallStt
 
 func enter():
 	player.animspr.play("fall")

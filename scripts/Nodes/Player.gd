@@ -31,9 +31,11 @@ func damage(dano:float) -> void:
 
 func _ready() -> void:
 	dir_x_switch = 1
+	$hitbox/CollisionShape2D.disabled = true
+	$hitbox/CollisionShape2D.shape = RectangleShape2D.new()
 	if resource:
 		vida = resource.health
-		$AnimationPlayer.add_animation_library("Teste",resource.animations)
+		$AnimationPlayer.add_animation_library(resource.name,resource.animations)
 		$AnimatedSprite2D.sprite_frames = resource.sprites
 	
 	for state in $StateMachine.get_children():
@@ -47,10 +49,11 @@ func die():
 	emit_signal("Die")
 
 func _physics_process(_delta: float) -> void:
-	dir_x = Input.get_axis("l", "r")
-	dir_y = Input.get_axis("up", "down")
-	if dir_x != 0 and dir_x_switch != dir_x:
-		$hitbox.scale.x *= -1
-		$AnimatedSprite2D.scale.x = dir_x_switch
-		dir_x_switch = dir_x
-	move_and_slide()
+	if !dummy:
+		dir_x = Input.get_axis("l", "r")
+		dir_y = Input.get_axis("up", "down")
+		if dir_x != 0 and dir_x_switch != dir_x:
+			$hitbox.scale.x *= -1
+			$AnimatedSprite2D.scale.x = dir_x_switch
+			dir_x_switch = dir_x
+		move_and_slide()

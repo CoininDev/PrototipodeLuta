@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjp5uu1n3m6n3"
-path="res://.godot/imported/67269.png-97b0ede2f2bd2665069f93be8c2931b2.ctex"
+uid="uid://csn3qhmkm8yi0"
+path="res://.godot/imported/kuririnicon.png-9cb164da911c0dd9e35a189d2c2c2d2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rsrc/spr/67269.png"
-dest_files=["res://.godot/imported/67269.png-97b0ede2f2bd2665069f93be8c2931b2.ctex"]
+source_file="res://rsrc/spr/Kuririn/kuririnicon.png"
+dest_files=["res://.godot/imported/kuririnicon.png-9cb164da911c0dd9e35a189d2c2c2d2b.ctex"]
 
 [params]
 

@@ -1,5 +1,5 @@
 extends State
-class_name MortoState
+class_name DeadStt
 
 func enter():
 	player.queue_free()

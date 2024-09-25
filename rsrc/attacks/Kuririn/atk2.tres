@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Attack" load_steps=2 format=3 uid="uid://dvwwhcj87doiy"]
 
-[ext_resource type="Script" path="res://scripts/Attack.gd" id="1_1kehg"]
+[ext_resource type="Script" path="res://scripts/Resources/Attack.gd" id="1_jlqnp"]
 
 [resource]
-script = ExtResource("1_1kehg")
-animation = "Teste/atk2"
+script = ExtResource("1_jlqnp")
+animation = "Kuririn/atk2"
 sprites_name = &"atk2"
 damage = 25.0

@@ -1,0 +1,16 @@
+Classe de um State: "[Name]Stt"
+Arquivo do State: "[Name]Stt.gd"
+Nó do State: "[Name]"
+
+pastas:
+- rsrc(recursos)
+	- chars
+		- [Personagem]
+			[char_resource].tres
+			[sprite_frames].tres
+	- attacks
+		- [Personagem]
+			[atk].tres
+			atk_animlib.tres
+	- spr
+		[sprites].png

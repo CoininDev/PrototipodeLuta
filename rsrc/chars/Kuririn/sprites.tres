@@ -1,6 +1,6 @@
-[gd_resource type="SpriteFrames" load_steps=45 format=3 uid="uid://bg6kdf88ogkwm"]
+[gd_resource type="SpriteFrames" load_steps=52 format=3 uid="uid://bg6kdf88ogkwm"]
 
-[ext_resource type="Texture2D" uid="uid://cjp5uu1n3m6n3" path="res://rsrc/spr/67269.png" id="1_bvk05"]
+[ext_resource type="Texture2D" uid="uid://cjp5uu1n3m6n3" path="res://rsrc/spr/Kuririn/67269.png" id="1_bvk05"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q8wli"]
 atlas = ExtResource("1_bvk05")
@@ -37,6 +37,34 @@ region = Rect2(442, 2319, 108, 97)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rpjmv"]
 atlas = ExtResource("1_bvk05")
 region = Rect2(552, 2319, 108, 97)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6f823"]
+atlas = ExtResource("1_bvk05")
+region = Rect2(2, 3832, 81, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_km313"]
+atlas = ExtResource("1_bvk05")
+region = Rect2(85, 3832, 81, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hrtu"]
+atlas = ExtResource("1_bvk05")
+region = Rect2(168, 3832, 81, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkbww"]
+atlas = ExtResource("1_bvk05")
+region = Rect2(251, 3832, 81, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ielrr"]
+atlas = ExtResource("1_bvk05")
+region = Rect2(334, 3832, 81, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btka3"]
+atlas = ExtResource("1_bvk05")
+region = Rect2(417, 3832, 81, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xsuh"]
+atlas = ExtResource("1_bvk05")
+region = Rect2(500, 3832, 81, 114)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_65vrj"]
 atlas = ExtResource("1_bvk05")
@@ -215,6 +243,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_6f823")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_km313")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hrtu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkbww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ielrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btka3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xsuh")
+}],
+"loop": false,
+"name": &"atk3",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_65vrj")
 }, {
 "duration": 1.0,
@@ -224,7 +278,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_pfnwd")
 }],
 "loop": false,
-"name": &"bloqueio",
+"name": &"block",
 "speed": 10.0
 }, {
 "frames": [{
@@ -252,6 +306,11 @@ animations = [{
 "loop": false,
 "name": &"fall",
 "speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"flyingIdle",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,

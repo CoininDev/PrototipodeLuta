@@ -1,5 +1,5 @@
-extends HitstunState
-class_name HitstunAereoState
+extends HitstunStt
+class_name FallingHitstunStt
 
 func enter():
 	pass

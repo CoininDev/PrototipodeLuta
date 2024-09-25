@@ -1,5 +1,5 @@
 extends State
-class_name HitstunState
+class_name HitstunStt
 
 var timer: Timer
 
@@ -15,7 +15,7 @@ func _on_time_out():
 	emit_signal("Transitioned", self, "idle")
 
 func _on_die():
-	emit_signal("Transitioned", self, "morto")
+	emit_signal("Transitioned", self, "dead")
 
 func exit():
 	timer.timeout.disconnect(_on_time_out)

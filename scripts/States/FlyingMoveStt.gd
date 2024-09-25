@@ -1,5 +1,5 @@
 extends State
-class_name MoveVooState
+class_name FlyingMoveStt
 
 @export var speed: float = 19000
 
@@ -10,5 +10,5 @@ func update(delta:float):
 	if player.is_on_floor():
 		emit_signal("Transitioned", self, "idle")
 	if !player.dir_x and !player.dir_y:
-		emit_signal("Transitioned", self, "voo")
+		emit_signal("Transitioned", self, "flyingIdle")
 	attack(false)

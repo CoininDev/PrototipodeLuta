@@ -1,5 +1,5 @@
 extends State
-class_name MoveState
+class_name MoveStt
 
 @export var speed: float = 19000
 @export var hitbox: Area2D
@@ -15,11 +15,11 @@ func update(delta:float):
 	
 	##Transitions
 	if Input.is_action_pressed("up"):
-		emit_signal("Transitioned", self, "pulo")
+		emit_signal("Transitioned", self, "jump")
 	if !player.is_on_floor():
 		emit_signal("Transitioned", self, "fall")
 	if Input.is_action_pressed("down"):
-		emit_signal("Transitioned", self, "bloqueio")
+		emit_signal("Transitioned", self, "block")
 	
 	attack(false)
 
@@ -27,4 +27,4 @@ func _on_hit():
 	emit_signal("Transitioned", self, "hitstun")
 
 func _on_die():
-	emit_signal("Transitioned", self, "morto")
+	emit_signal("Transitioned", self, "dead")
