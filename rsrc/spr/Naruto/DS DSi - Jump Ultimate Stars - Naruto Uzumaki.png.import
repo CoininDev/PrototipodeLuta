@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csn3qhmkm8yi0"
-path="res://.godot/imported/kuririnicon.png-9cb164da911c0dd9e35a189d2c2c2d2b.ctex"
+uid="uid://d1yh5on6oycl8"
+path="res://.godot/imported/DS DSi - Jump Ultimate Stars - Naruto Uzumaki.png-51c71ec6bf6066d2280ae04b2c0987ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rsrc/spr/Kuririn/kuririnicon.png"
-dest_files=["res://.godot/imported/kuririnicon.png-9cb164da911c0dd9e35a189d2c2c2d2b.ctex"]
+source_file="res://rsrc/spr/Naruto/DS DSi - Jump Ultimate Stars - Naruto Uzumaki.png"
+dest_files=["res://.godot/imported/DS DSi - Jump Ultimate Stars - Naruto Uzumaki.png-51c71ec6bf6066d2280ae04b2c0987ec.ctex"]
 
 [params]
 

@@ -19,7 +19,7 @@ func _on_animspr_end():
 func _on_anim_end(_anim_name: StringName):
 	var bodies = hitbox.get_overlapping_bodies()
 	for body in bodies:
-		if body is Player:
+		if body is Player and body != player:
 			body.damage(player.current_attack.damage)
 
 func exit():

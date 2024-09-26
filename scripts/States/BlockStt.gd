@@ -13,7 +13,7 @@ func update(delta:float):
 
 func exit():
 	player.defesa = false
-	player.animspr.play_backwards("bloqueio")
+	player.animspr.play_backwards("block")
 
 func _on_die():
 	emit_signal("Transitioned", self, "dead")

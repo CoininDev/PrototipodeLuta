@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dfmmqdn632br8"]
 
 [ext_resource type="PackedScene" uid="uid://brctfugvq5yex" path="res://scenes/Player.tscn" id="1_a16dp"]
-[ext_resource type="Resource" uid="uid://c8uhtftyp0lmo" path="res://rsrc/chars/Kuririn/char.tres" id="2_hs4qd"]
+[ext_resource type="Resource" uid="uid://bogqp3tsjg0ob" path="res://rsrc/chars/Naruto/char.tres" id="2_17dft"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clt3a"]
 size = Vector2(1160, 94)
@@ -17,11 +17,11 @@ position = Vector2(1, 3)
 shape = SubResource("RectangleShape2D_clt3a")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_a16dp")]
-position = Vector2(177, 308)
+position = Vector2(345, -83)
 scale = Vector2(2, 2)
-resource = ExtResource("2_hs4qd")
+resource = ExtResource("2_17dft")
 
 [node name="CharacterBody2D2" parent="." instance=ExtResource("1_a16dp")]
-position = Vector2(715, 375)
+position = Vector2(737, 373)
 scale = Vector2(2, 2)
 dummy = true

@@ -4,7 +4,7 @@ class_name JumpStt
 @export var forca_de_pulo:float = -500
 func enter():
 	player.velocity.y = forca_de_pulo
-	player.animspr.play("pulo")
+	player.animspr.play("jump")
 
 func physics_update(delta: float):
 	player.velocity += player.get_gravity() * delta

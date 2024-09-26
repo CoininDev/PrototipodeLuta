@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjp5uu1n3m6n3"
-path="res://.godot/imported/67269.png-d5328bfae42b8cf2617a60a38194e2f4.ctex"
+uid="uid://cqxldr4mexgps"
+path="res://.godot/imported/DS DSi - Jump Ultimate Stars - Yugi Mutou.png-29ebc5075f159153aa4bc44f52eaff29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rsrc/spr/Kuririn/67269.png"
-dest_files=["res://.godot/imported/67269.png-d5328bfae42b8cf2617a60a38194e2f4.ctex"]
+source_file="res://rsrc/spr/Yugi/DS DSi - Jump Ultimate Stars - Yugi Mutou.png"
+dest_files=["res://.godot/imported/DS DSi - Jump Ultimate Stars - Yugi Mutou.png-29ebc5075f159153aa4bc44f52eaff29.ctex"]
 
 [params]
 

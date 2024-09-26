@@ -35,7 +35,7 @@ func _ready() -> void:
 	$hitbox/CollisionShape2D.shape = RectangleShape2D.new()
 	if resource:
 		vida = resource.health
-		$AnimationPlayer.add_animation_library(resource.name,resource.animations)
+		$AnimationPlayer.add_animation_library(resource.name,resource.attack_animations)
 		$AnimatedSprite2D.sprite_frames = resource.sprites
 	
 	for state in $StateMachine.get_children():
@@ -54,6 +54,6 @@ func _physics_process(_delta: float) -> void:
 		dir_y = Input.get_axis("up", "down")
 		if dir_x != 0 and dir_x_switch != dir_x:
 			$hitbox.scale.x *= -1
-			$AnimatedSprite2D.scale.x = dir_x_switch
+			$AnimatedSprite2D.scale.x *= -1
 			dir_x_switch = dir_x
 		move_and_slide()

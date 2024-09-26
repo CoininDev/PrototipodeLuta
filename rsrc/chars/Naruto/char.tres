@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CharResource" load_steps=8 format=3 uid="uid://bogqp3tsjg0ob"]
+
+[ext_resource type="Script" path="res://scripts/Resources/CharResource.gd" id="1_0m68a"]
+[ext_resource type="AnimationLibrary" uid="uid://b4sij8thny88k" path="res://rsrc/attacks/Naruto/atk_anim.tres" id="1_ak4e3"]
+[ext_resource type="Texture2D" uid="uid://b2iy00rygpu07" path="res://icon.svg" id="1_g2o26"]
+[ext_resource type="Resource" uid="uid://do21tt1rgy6h8" path="res://rsrc/attacks/Naruto/atk1.tres" id="2_3nwh8"]
+[ext_resource type="Resource" uid="uid://cwlqv6wld66ps" path="res://rsrc/attacks/Naruto/atk2.tres" id="3_j6h2s"]
+[ext_resource type="Resource" uid="uid://dl843qavh0vc" path="res://rsrc/attacks/Naruto/atk3.tres" id="4_0kt17"]
+[ext_resource type="SpriteFrames" uid="uid://dexokbstebtb1" path="res://rsrc/chars/Naruto/sprites.tres" id="7_s58p6"]
+
+[resource]
+script = ExtResource("1_0m68a")
+name = "Naruto"
+icon = ExtResource("1_g2o26")
+attack_animations = ExtResource("1_ak4e3")
+sprites = ExtResource("7_s58p6")
+health = 100.0
+attacks = [ExtResource("2_3nwh8"), ExtResource("3_j6h2s"), ExtResource("4_0kt17")]

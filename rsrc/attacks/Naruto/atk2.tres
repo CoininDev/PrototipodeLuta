@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Attack" load_steps=2 format=3 uid="uid://cwlqv6wld66ps"]
+
+[ext_resource type="Script" path="res://scripts/Resources/Attack.gd" id="1_75alu"]
+
+[resource]
+script = ExtResource("1_75alu")
+animation = "Naruto/atk2"
+sprites_name = &"atk2"
+damage = 17.0
