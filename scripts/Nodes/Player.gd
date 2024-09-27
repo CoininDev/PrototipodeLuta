@@ -11,7 +11,7 @@ signal Die
 @export_category("combat")
 @export var vida: float = 100.0
 @export var defesa: bool
-var current_attack: Attack = null
+var current_attack: StringName = ""
 
 @export var animspr: AnimatedSprite2D 
 #move
@@ -35,8 +35,8 @@ func _ready() -> void:
 	$hitbox/CollisionShape2D.shape = RectangleShape2D.new()
 	if resource:
 		vida = resource.health
-		$AnimationPlayer.add_animation_library(resource.name,resource.attack_animations)
-		$AnimatedSprite2D.sprite_frames = resource.sprites
+		$AnimationPlayer.add_animation_library(resource.name,resource.animations)
+		#$AnimatedSprite2D.sprite_frames = resource.sprites
 	
 	for state in $StateMachine.get_children():
 		if state.has_method("_on_hit"):
@@ -54,6 +54,6 @@ func _physics_process(_delta: float) -> void:
 		dir_y = Input.get_axis("up", "down")
 		if dir_x != 0 and dir_x_switch != dir_x:
 			$hitbox.scale.x *= -1
-			$AnimatedSprite2D.scale.x *= -1
+			$Sprite2D.flip_h = !$Sprite2D.flip_h
 			dir_x_switch = dir_x
 		move_and_slide()

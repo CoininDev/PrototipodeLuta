@@ -1,30 +1,28 @@
 extends State
 class_name AttackStt
-
-@export var anim: AnimationPlayer
-@export var hitbox: Area2D
+@export var hitbox: Hitbox
 @export var hitbox_col: CollisionShape2D
 
 
 func enter():
 	player.velocity.x = 0
-	player.animspr.play(player.current_attack.sprites_name)
-	player.animspr.animation_finished.connect(_on_animspr_end)
-	anim.play(player.current_attack.animation)
-	anim.animation_finished.connect(_on_anim_end)
+	anim.play(anim_name(player.current_attack))
+	anim.animation_finished.connect(_on_finish)
+	hitbox.Attack.connect(_on_attack)
 
-func _on_animspr_end():
-	emit_signal("Transitioned", self, "idle")
-
-func _on_anim_end(_anim_name: StringName):
+func _on_attack(dano:float):
 	var bodies = hitbox.get_overlapping_bodies()
 	for body in bodies:
-		if body is Player and body != player:
-			body.damage(player.current_attack.damage)
+		if body is Player and body != player: #que frase estúpida pqp
+			body.damage(dano)
+
+func _on_finish(_a):
+	anim.play("RESET")
+	emit_signal("Transitioned", self, "idle")
 
 func exit():
-	anim.animation_finished.disconnect(_on_anim_end)
-	player.animspr.animation_finished.disconnect(_on_animspr_end)
+	hitbox.Attack.disconnect(_on_attack)
+	anim.animation_finished.disconnect(_on_finish)
 
 func _on_hit():
 	emit_signal("Transitioned", self, "hitstun")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharResource" load_steps=4 format=3 uid="uid://c83rnlbbtpdag"]
+
+[ext_resource type="AnimationLibrary" uid="uid://c2qxbvtx740od" path="res://rsrc/chars/Jukju/Jukju.tres" id="1_4lhru"]
+[ext_resource type="Script" path="res://scripts/Resources/CharResource.gd" id="1_og0wx"]
+[ext_resource type="Texture2D" uid="uid://b2iy00rygpu07" path="res://icon.svg" id="1_xqd1j"]
+
+[resource]
+script = ExtResource("1_og0wx")
+name = "Jukju"
+icon = ExtResource("1_xqd1j")
+animations = ExtResource("1_4lhru")
+health = 100.0
+attacks = [&"atk1"]

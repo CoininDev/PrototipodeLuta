@@ -4,6 +4,7 @@ class_name State
 signal Transitioned
 var active := false
 @export var player: Player
+@export var anim: AnimationPlayer
 
 func enter() -> void: pass
 func exit() -> void: pass
@@ -29,3 +30,7 @@ func attack(aereo:bool) -> void:
 			emit_signal("Transitioned", self, "attack")
 	
 	##...
+func anim_name(s: String) -> String:
+	if player.resource:
+		return player.resource.name + "/" + s
+	return ""

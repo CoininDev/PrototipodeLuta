@@ -1,13 +1,10 @@
 extends State
 class_name IdleStt
-
-@export var anim: AnimationPlayer
-
 func enter():
 	player.velocity.x = 0
 	player.velocity.y = 0
-	player.animspr.play("idle")
 	anim.play("RESET")
+	anim.play(anim_name("idle"))
 
 func update(_delta:float):
 	##Transitions

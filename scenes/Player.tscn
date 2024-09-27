@@ -1,10 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://brctfugvq5yex"]
+[gd_scene load_steps=25 format=3 uid="uid://brctfugvq5yex"]
 
 [ext_resource type="Script" path="res://scripts/Nodes/Player.gd" id="1_e8gub"]
 [ext_resource type="Shader" path="res://rsrc/shaders/chroma key.gdshader" id="2_qr2h4"]
 [ext_resource type="Script" path="res://scripts/States/IdleStt.gd" id="3_1hyoa"]
+[ext_resource type="Texture2D" uid="uid://c1t3mpet770yc" path="res://rsrc/spr/Jukju/Idle.png" id="3_6gagl"]
+[ext_resource type="Script" path="res://scripts/Nodes/Hitbox.gd" id="3_254kh"]
 [ext_resource type="Script" path="res://scripts/Nodes/StateMachine.gd" id="3_kvlqf"]
 [ext_resource type="Script" path="res://scripts/States/MoveStt.gd" id="4_kvc8p"]
+[ext_resource type="AnimationLibrary" uid="uid://c2qxbvtx740od" path="res://rsrc/chars/Jukju/Jukju.tres" id="4_rifk5"]
 [ext_resource type="Script" path="res://scripts/States/JumpStt.gd" id="5_co657"]
 [ext_resource type="Script" path="res://scripts/States/FallStt.gd" id="6_a3uad"]
 [ext_resource type="Script" path="res://scripts/States/HitstunStt.gd" id="7_nhkxi"]
@@ -19,8 +22,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_getsc"]
 shader = ExtResource("2_qr2h4")
-shader_parameter/chroma_key_color = Color(0.501961, 0.501961, 1, 1)
-shader_parameter/pickup_range = 0.594
+shader_parameter/chroma_key_color = Color(0, 0, 0, 1)
+shader_parameter/pickup_range = 0.0
 shader_parameter/fade_amount = 0.1
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w0vau"]
@@ -66,6 +69,42 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(7, 7)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_6gagl")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:hframes")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ym6nr"]
 _data = {
@@ -75,30 +114,32 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqtvw"]
 size = Vector2(7, 7)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animspr") groups=["personagem"]]
+[node name="Player" type="CharacterBody2D" groups=["personagem"]]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_e8gub")
-animspr = NodePath("AnimatedSprite2D")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 material = SubResource("ShaderMaterial_getsc")
 position = Vector2(0, -2)
 scale = Vector2(1.25, 1.25)
-animation = &""
+texture = ExtResource("3_6gagl")
+hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_w0vau")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ym6nr")
+"": SubResource("AnimationLibrary_ym6nr"),
+"Jukju": ExtResource("4_rifk5")
 }
 
 [node name="hitbox" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 2
+script = ExtResource("3_254kh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 shape = SubResource("RectangleShape2D_mqtvw")
@@ -108,61 +149,70 @@ debug_color = Color(0.998937, 0, 0.128371, 0.42)
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_kvlqf")
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("anim", "player")]
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "anim")]
 script = ExtResource("3_1hyoa")
-anim = NodePath("../../AnimationPlayer")
 player = NodePath("../..")
+anim = NodePath("../../AnimationPlayer")
 
-[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox", "player")]
+[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox", "player", "anim")]
 script = ExtResource("4_kvc8p")
 hitbox = NodePath("../../hitbox")
 player = NodePath("../..")
+anim = NodePath("../../AnimationPlayer")
 
-[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "anim")]
 script = ExtResource("5_co657")
 player = NodePath("../..")
+anim = NodePath("../../AnimationPlayer")
 
-[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "anim")]
 script = ExtResource("6_a3uad")
 player = NodePath("../..")
+anim = NodePath("../../AnimationPlayer")
 
-[node name="Hitstun" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="Hitstun" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "anim")]
 script = ExtResource("7_nhkxi")
 player = NodePath("../..")
+anim = NodePath("../../AnimationPlayer")
 
-[node name="FallingHitstun" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="FallingHitstun" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "anim")]
 script = ExtResource("8_gf2eh")
 player = NodePath("../..")
+anim = NodePath("../../AnimationPlayer")
 
-[node name="Block" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="Block" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "anim")]
 script = ExtResource("8_6knus")
 player = NodePath("../..")
+anim = NodePath("../../AnimationPlayer")
 
-[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("anim", "hitbox", "hitbox_col", "player")]
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox", "hitbox_col", "player", "anim")]
 script = ExtResource("10_lwetg")
-anim = NodePath("../../AnimationPlayer")
 hitbox = NodePath("../../hitbox")
 hitbox_col = NodePath("../../hitbox/CollisionShape2D")
 player = NodePath("../..")
+anim = NodePath("../../AnimationPlayer")
 
-[node name="FallingAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("anim", "hitbox", "hitbox_col", "player")]
+[node name="FallingAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox", "hitbox_col", "player", "anim")]
 script = ExtResource("9_de65s")
-anim = NodePath("../../AnimationPlayer")
 hitbox = NodePath("../../hitbox")
 hitbox_col = NodePath("../../hitbox/CollisionShape2D")
 player = NodePath("../..")
+anim = NodePath("../../AnimationPlayer")
 
-[node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "anim")]
 script = ExtResource("13_3q44w")
 player = NodePath("../..")
+anim = NodePath("../../AnimationPlayer")
 
-[node name="FlyingIdle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="FlyingIdle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "anim")]
 script = ExtResource("13_y6380")
 player = NodePath("../..")
+anim = NodePath("../../AnimationPlayer")
 
-[node name="FlyingMove" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="FlyingMove" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "anim")]
 script = ExtResource("14_qd07h")
 player = NodePath("../..")
+anim = NodePath("../../AnimationPlayer")
 
 [node name="Label" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
 offset_left = -19.0
@@ -172,3 +222,4 @@ offset_bottom = -36.0
 text = "asdfasdddd"
 script = ExtResource("12_hg8h6")
 state_machine = NodePath("../StateMachine")
+metadata/_edit_use_anchors_ = true

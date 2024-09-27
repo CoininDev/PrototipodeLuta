@@ -5,7 +5,7 @@ class_name BlockStt
 func enter():
 	player.velocity.x = 0
 	player.defesa = true
-	player.animspr.play("block")
+	anim.play(anim_name("block"))
 
 func update(delta:float):
 	if Input.is_action_just_released("down"):
@@ -13,7 +13,7 @@ func update(delta:float):
 
 func exit():
 	player.defesa = false
-	player.animspr.play_backwards("block")
+	anim.play_backwards(anim_name("block"))
 
 func _on_die():
 	emit_signal("Transitioned", self, "dead")

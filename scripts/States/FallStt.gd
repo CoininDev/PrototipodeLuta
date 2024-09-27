@@ -2,7 +2,7 @@ extends State
 class_name FallStt
 
 func enter():
-	player.animspr.play("fall")
+	anim.play(anim_name("fall"))
 
 func physics_update(delta: float):
 	player.velocity += player.get_gravity() * delta

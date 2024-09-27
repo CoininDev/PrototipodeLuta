@@ -5,7 +5,7 @@ class_name MoveStt
 @export var hitbox: Area2D
 
 func enter():
-	player.animspr.play("move")
+	anim.play(anim_name("move"))
 
 func update(delta:float):
 	if player.dir_x == 0:
