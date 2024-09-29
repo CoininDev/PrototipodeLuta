@@ -5,15 +5,18 @@ Erros:
 Coisas feitas:
 	- Máquina de estados
 	- Recursos
+	- Sistema de combate
+	- Movimento
 
 Coisas em processo:
 	- Animações e integração de sprites
 
 Coisas para fazer:
+	- Ataques em corrente (um puxa o outro) e o personagem da marreta + Combos
 	- Tela de seleção
 	- Ataques com empurrão(move o alvo) + Ataques móveis(move o atacante)
-	- Combos
 	- Camera + Mapa aberto como butouden
+	- Direção de personagem correta (sempre de olho no oponente)
 	- GUI
 	- Energia
 	- Fim do jogo (quando alguém morre)
