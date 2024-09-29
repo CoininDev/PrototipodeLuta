@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfmmqdn632br8"]
+[gd_scene load_steps=5 format=3 uid="uid://dfmmqdn632br8"]
 
 [ext_resource type="PackedScene" uid="uid://brctfugvq5yex" path="res://scenes/Player.tscn" id="1_a16dp"]
+[ext_resource type="Resource" uid="uid://8j1fs43bl2sy" path="res://rsrc/chars/Sifradt/char.tres" id="2_6slia"]
 [ext_resource type="Resource" uid="uid://c83rnlbbtpdag" path="res://rsrc/chars/Jukju/char.tres" id="2_acet6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clt3a"]
@@ -24,4 +25,5 @@ resource = ExtResource("2_acet6")
 [node name="CharacterBody2D2" parent="." instance=ExtResource("1_a16dp")]
 position = Vector2(737, 373)
 scale = Vector2(2, 2)
+resource = ExtResource("2_6slia")
 dummy = true

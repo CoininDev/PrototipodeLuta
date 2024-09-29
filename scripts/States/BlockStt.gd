@@ -7,7 +7,7 @@ func enter():
 	player.defesa = true
 	anim.play(anim_name("block"))
 
-func update(delta:float):
+func update(_delta:float):
 	if Input.is_action_just_released("down"):
 		emit_signal("Transitioned", self, "idle")
 

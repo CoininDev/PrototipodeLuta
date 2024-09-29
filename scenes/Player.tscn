@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://brctfugvq5yex"]
+[gd_scene load_steps=24 format=3 uid="uid://brctfugvq5yex"]
 
 [ext_resource type="Script" path="res://scripts/Nodes/Player.gd" id="1_e8gub"]
 [ext_resource type="Shader" path="res://rsrc/shaders/chroma key.gdshader" id="2_qr2h4"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://scripts/Nodes/Hitbox.gd" id="3_254kh"]
 [ext_resource type="Script" path="res://scripts/Nodes/StateMachine.gd" id="3_kvlqf"]
 [ext_resource type="Script" path="res://scripts/States/MoveStt.gd" id="4_kvc8p"]
-[ext_resource type="AnimationLibrary" uid="uid://c2qxbvtx740od" path="res://rsrc/chars/Jukju/Jukju.tres" id="4_rifk5"]
 [ext_resource type="Script" path="res://scripts/States/JumpStt.gd" id="5_co657"]
 [ext_resource type="Script" path="res://scripts/States/FallStt.gd" id="6_a3uad"]
 [ext_resource type="Script" path="res://scripts/States/HitstunStt.gd" id="7_nhkxi"]
@@ -24,7 +23,7 @@
 shader = ExtResource("2_qr2h4")
 shader_parameter/chroma_key_color = Color(0, 0, 0, 1)
 shader_parameter/pickup_range = 0.0
-shader_parameter/fade_amount = 0.1
+shader_parameter/fade_amount = 0.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w0vau"]
 radius = 17.0
@@ -132,8 +131,7 @@ shape = SubResource("CapsuleShape2D_w0vau")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ym6nr"),
-"Jukju": ExtResource("4_rifk5")
+"": SubResource("AnimationLibrary_ym6nr")
 }
 
 [node name="hitbox" type="Area2D" parent="."]

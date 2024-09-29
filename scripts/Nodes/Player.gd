@@ -11,9 +11,7 @@ signal Die
 @export_category("combat")
 @export var vida: float = 100.0
 @export var defesa: bool
-var current_attack: StringName = ""
-
-@export var animspr: AnimatedSprite2D 
+var current_attack: Attack
 #move
 var dir_x: int
 var dir_y: int

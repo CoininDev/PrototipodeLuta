@@ -5,6 +5,8 @@ var timer: Timer
 
 func enter():
 	player.velocity.x = 0
+	print(anim_name("hit"))
+	anim.play(anim_name("hit"))
 	timer = Timer.new()
 	timer.one_shot = true
 	timer.timeout.connect(_on_time_out)

@@ -1,9 +1,6 @@
 extends HitstunStt
 class_name FallingHitstunStt
 
-func enter():
-	pass
-
 func physics_update(delta:float):
 	if !player.is_on_floor():
 		player.velocity += player.get_gravity() * delta

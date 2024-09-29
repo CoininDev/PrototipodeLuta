@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Attack" load_steps=2 format=3 uid="uid://bs03o81dkof3v"]
-
-[ext_resource type="Script" path="res://scripts/Resources/Attack.gd" id="1_yduo8"]
-
-[resource]
-script = ExtResource("1_yduo8")
-animation = "Yugi/atk3"
-sprites_name = &"atk3"
-damage = 15.0

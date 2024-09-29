@@ -5,7 +5,7 @@ func enter():
 	player.velocity.x = 0
 	player.velocity.y = 0
 
-func update(delta: float):
+func update(_delta: float):
 	if player.dir_x or player.dir_y:
 		emit_signal("Transitioned", self, "flyingMove")
 	if player.is_on_floor():

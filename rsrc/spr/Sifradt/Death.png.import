@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1yh5on6oycl8"
-path="res://.godot/imported/DS DSi - Jump Ultimate Stars - Naruto Uzumaki.png-51c71ec6bf6066d2280ae04b2c0987ec.ctex"
+uid="uid://bacxqwy4ipu4a"
+path="res://.godot/imported/Death.png-3ad3af50485cabf3f3deeb1ccf860d96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rsrc/spr/Naruto/DS DSi - Jump Ultimate Stars - Naruto Uzumaki.png"
-dest_files=["res://.godot/imported/DS DSi - Jump Ultimate Stars - Naruto Uzumaki.png-51c71ec6bf6066d2280ae04b2c0987ec.ctex"]
+source_file="res://rsrc/spr/Sifradt/Death.png"
+dest_files=["res://.godot/imported/Death.png-3ad3af50485cabf3f3deeb1ccf860d96.ctex"]
 
 [params]
 

@@ -6,7 +6,7 @@ class_name AttackStt
 
 func enter():
 	player.velocity.x = 0
-	anim.play(anim_name(player.current_attack))
+	anim.play(anim_name(player.current_attack.animation))
 	anim.animation_finished.connect(_on_finish)
 	hitbox.Attack.connect(_on_attack)
 
