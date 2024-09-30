@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://brctfugvq5yex"]
+[gd_scene load_steps=22 format=3 uid="uid://brctfugvq5yex"]
 
 [ext_resource type="Script" path="res://scripts/Nodes/Player.gd" id="1_e8gub"]
 [ext_resource type="Shader" path="res://rsrc/shaders/chroma key.gdshader" id="2_qr2h4"]
@@ -11,8 +11,6 @@
 [ext_resource type="Script" path="res://scripts/States/FallStt.gd" id="6_a3uad"]
 [ext_resource type="Script" path="res://scripts/States/HitstunStt.gd" id="7_nhkxi"]
 [ext_resource type="Script" path="res://scripts/States/BlockStt.gd" id="8_6knus"]
-[ext_resource type="Script" path="res://scripts/States/FallingHitstunStt.gd" id="8_gf2eh"]
-[ext_resource type="Script" path="res://scripts/States/FallingAttackStt.gd" id="9_de65s"]
 [ext_resource type="Script" path="res://scripts/States/AttackStt.gd" id="10_lwetg"]
 [ext_resource type="Script" path="res://scripts/Debug/label.gd" id="12_hg8h6"]
 [ext_resource type="Script" path="res://scripts/States/DeadStt.gd" id="13_3q44w"]
@@ -173,11 +171,6 @@ script = ExtResource("7_nhkxi")
 player = NodePath("../..")
 anim = NodePath("../../AnimationPlayer")
 
-[node name="FallingHitstun" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "anim")]
-script = ExtResource("8_gf2eh")
-player = NodePath("../..")
-anim = NodePath("../../AnimationPlayer")
-
 [node name="Block" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "anim")]
 script = ExtResource("8_6knus")
 player = NodePath("../..")
@@ -185,13 +178,6 @@ anim = NodePath("../../AnimationPlayer")
 
 [node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox", "hitbox_col", "player", "anim")]
 script = ExtResource("10_lwetg")
-hitbox = NodePath("../../hitbox")
-hitbox_col = NodePath("../../hitbox/CollisionShape2D")
-player = NodePath("../..")
-anim = NodePath("../../AnimationPlayer")
-
-[node name="FallingAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox", "hitbox_col", "player", "anim")]
-script = ExtResource("9_de65s")
 hitbox = NodePath("../../hitbox")
 hitbox_col = NodePath("../../hitbox/CollisionShape2D")
 player = NodePath("../..")

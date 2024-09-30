@@ -7,13 +7,13 @@ Coisas feitas:
 	- Recursos
 	- Sistema de combate
 	- Movimento
-
-Coisas em processo:
+	- Ataques em corrente (um puxa o outro) + Combos
 	- Animações e integração de sprites
 
-Coisas para fazer:
-	- Ataques em corrente (um puxa o outro) e o personagem da marreta + Combos
+Coisas em processo:
 	- Tela de seleção
+
+Coisas para fazer:
 	- Ataques com empurrão(move o alvo) + Ataques móveis(move o atacante)
 	- Camera + Mapa aberto como butouden
 	- Direção de personagem correta (sempre de olho no oponente)

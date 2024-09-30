@@ -5,15 +5,19 @@
 [ext_resource type="Texture2D" uid="uid://cxl103u856rj4" path="res://rsrc/spr/Sifradt/barry.jpg" id="1_u2l2p"]
 [ext_resource type="Script" path="res://scripts/Resources/Attack.gd" id="2_rlhpx"]
 
-[sub_resource type="Resource" id="Resource_mkckq"]
+[sub_resource type="Resource" id="Resource_4olge"]
 script = ExtResource("2_rlhpx")
 animation = "atk1"
 trigger = "atk1"
+hidden = false
+sequence = []
 
-[sub_resource type="Resource" id="Resource_smtai"]
+[sub_resource type="Resource" id="Resource_qjukj"]
 script = ExtResource("2_rlhpx")
 animation = "atk2"
 trigger = "atk2"
+hidden = false
+sequence = []
 
 [resource]
 script = ExtResource("1_n5dky")
@@ -21,4 +25,7 @@ name = "Sifradt"
 icon = ExtResource("1_u2l2p")
 animations = ExtResource("1_8x6kl")
 health = 100.0
-attacks = [SubResource("Resource_mkckq"), SubResource("Resource_smtai")]
+attacks = {
+"atk1": SubResource("Resource_4olge"),
+"atk2": SubResource("Resource_qjukj")
+}

@@ -14,4 +14,7 @@ func physics_update(delta: float):
 	if Input.is_action_just_pressed("up"):
 		emit_signal("Transitioned", self, "flyingIdle")
 
-	attack(true)
+	check_attacks(true)
+
+func _on_hit():
+	emit_signal("Transitioned", self, "hitstun")

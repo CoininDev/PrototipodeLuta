@@ -11,4 +11,4 @@ func update(delta:float):
 		emit_signal("Transitioned", self, "idle")
 	if !player.dir_x and !player.dir_y:
 		emit_signal("Transitioned", self, "flyingIdle")
-	attack(false)
+	check_attacks(false)

@@ -17,7 +17,7 @@ func update(_delta:float):
 	if Input.is_action_just_pressed("down"):
 		emit_signal("Transitioned", self, "block")
 	
-	attack(false)
+	check_attacks(false)
 
 func _on_hit():
 	emit_signal("Transitioned", self, "hitstun")

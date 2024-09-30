@@ -10,4 +10,7 @@ func physics_update(delta: float):
 	if player.is_on_floor():
 		emit_signal("Transitioned", self, "idle")
 	
-	attack(true)
+	check_attacks(true)
+
+func _on_hit():
+	emit_signal("Transitioned", self, "hitstun")

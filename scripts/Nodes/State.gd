@@ -10,18 +10,16 @@ func enter() -> void: pass
 func exit() -> void: pass
 func update(_delta:float) -> void: pass
 func physics_update(_delta:float) -> void: pass
-func attack(falling:bool) -> void:
-	var attacked: bool
+func check_attacks(falling:bool) -> void:
 	##Ataques
-
-	for atk in player.resource.attacks:
-		if Input.is_action_just_pressed(atk.trigger):
+	for atk in player.resource.attacks.values():
+		if Input.is_action_just_pressed(atk.trigger) and not atk.hidden:
 			player.current_attack = atk
-			attacked = true
-			if falling:
-				emit_signal("Transitioned", self, "fallingAttack")
-			else:
-				emit_signal("Transitioned", self, "attack")
+			emit_signal("Transitioned", self, "attack")
+			#if falling:
+				#emit_signal("Transitioned", self, "fallingAttack")
+			#else:
+				#emit_signal("Transitioned", self, "attack")
 
 func anim_name(s: String) -> String:
 	if player.resource:

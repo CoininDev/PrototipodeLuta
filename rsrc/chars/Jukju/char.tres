@@ -5,15 +5,19 @@
 [ext_resource type="Texture2D" uid="uid://b2iy00rygpu07" path="res://icon.svg" id="1_xqd1j"]
 [ext_resource type="Script" path="res://scripts/Resources/Attack.gd" id="2_ucj7m"]
 
-[sub_resource type="Resource" id="Resource_gdc4h"]
+[sub_resource type="Resource" id="Resource_o8k31"]
 script = ExtResource("2_ucj7m")
 animation = "atk1"
 trigger = "atk1"
+hidden = false
+sequence = ["atk2"]
 
-[sub_resource type="Resource" id="Resource_wl8ds"]
+[sub_resource type="Resource" id="Resource_krbeh"]
 script = ExtResource("2_ucj7m")
 animation = "atk2"
 trigger = "atk2"
+hidden = true
+sequence = []
 
 [resource]
 script = ExtResource("1_og0wx")
@@ -21,4 +25,7 @@ name = "Jukju"
 icon = ExtResource("1_xqd1j")
 animations = ExtResource("1_4lhru")
 health = 100.0
-attacks = [SubResource("Resource_gdc4h"), SubResource("Resource_wl8ds")]
+attacks = {
+"atk1": SubResource("Resource_o8k31"),
+"atk2": SubResource("Resource_krbeh")
+}

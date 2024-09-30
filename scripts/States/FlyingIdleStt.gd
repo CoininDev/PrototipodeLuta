@@ -10,4 +10,4 @@ func update(_delta: float):
 		emit_signal("Transitioned", self, "flyingMove")
 	if player.is_on_floor():
 		emit_signal("Transitioned", self, "idle")
-	attack(false)
+	check_attacks(false)

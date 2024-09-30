@@ -8,9 +8,10 @@ pastas:
 		- [Personagem]
 			[char_resource].tres
 			[sprite_frames].tres
-	- attacks
-		- [Personagem]
-			[atk].tres
-			atk_animlib.tres
 	- spr
 		[sprites].png
+- scripts
+	- Debug
+	- Nodes
+	- Resources
+	- States

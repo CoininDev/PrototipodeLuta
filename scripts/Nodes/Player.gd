@@ -47,6 +47,8 @@ func die():
 	emit_signal("Die")
 
 func _physics_process(_delta: float) -> void:
+	if vida <= 0:
+		die()
 	if !dummy:
 		dir_x = Input.get_axis("l", "r")
 		dir_y = Input.get_axis("up", "down")
