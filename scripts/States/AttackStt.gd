@@ -26,7 +26,6 @@ func physics_update(delta: float):
 		player.velocity.x = 0
 	
 	if linkable:
-		print("linkable")
 		for atk_name in player.current_attack.sequence:
 			var atk = player.resource.attacks[atk_name]
 			if Input.is_action_just_pressed(atk.trigger):
