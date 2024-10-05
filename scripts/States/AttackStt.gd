@@ -1,14 +1,18 @@
 extends State
 class_name AttackStt
-@export var hitbox: Hitbox
+@export var hitbox: Area2D
 @export var hitbox_col: CollisionShape2D
 
 var linkable:bool = false
+var cancelable:bool = false
 
 func enter():
 	player.velocity.x = 0
+	anim.stop(true)
 	anim.play(anim_name(player.current_attack.animation))
 	anim.animation_finished.connect(_on_finish)
+	linkable = false
+	cancelable = false
 
 func attack(dano:float):
 	var bodies = hitbox.get_overlapping_bodies()
@@ -18,6 +22,9 @@ func attack(dano:float):
 
 func toggle_link(val: bool):
 	linkable = val
+
+func toggle_cancel(val:bool):
+	cancelable = val
 
 func physics_update(delta: float):
 	if !player.is_on_floor():
@@ -34,13 +41,16 @@ func physics_update(delta: float):
 					emit_signal("Transitioned", self, "attack")
 				else:
 					emit_signal("Transitioned", self, "fallingAttack")
-
+	
+	if cancelable:
+		if Input.is_action_just_pressed("down"):
+			emit_signal("Transitioned", self, "block")
+	
 func _on_finish(_a):
 	anim.play("RESET")
 	emit_signal("Transitioned", self, "idle")
 
 func exit():
-	linkable = false
 	anim.animation_finished.disconnect(_on_finish)
 
 func _on_hit():

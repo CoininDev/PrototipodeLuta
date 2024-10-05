@@ -22,10 +22,16 @@ func _ready() -> void:
 					printerr("Item não encontrado: " + char_res_file)
 			folder_name = dir.get_next()
 		
+		print(chars)
 		for char:CharResource in chars:
-			$CenterContainer/ItemList.add_item(char.name, char.icon, true)
-		
+			var btn: Button = Button.new()
+			btn.text = char.name
+			btn.icon = char.icon
+			btn.pressed.connect(_on_pressed.bind(char))
+			$CenterContainer/GridContainer.add_child(btn)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_pressed(char: CharResource) -> void:
+	$CenterContainer.visible = false
+	var scene = load("res://scenes/DebugRoom.tscn").instantiate()
+	scene.apply_char(char)
+	add_child(scene)

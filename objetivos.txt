@@ -9,16 +9,18 @@ Coisas feitas:
 	- Movimento
 	- Ataques em corrente (um puxa o outro) + Combos
 	- Animações e integração de sprites
+	- Tela de seleção
 
 Coisas em processo:
-	- Tela de seleção
+	- Projéteis
 
 Coisas para fazer:
 	- Ataques com empurrão(move o alvo) + Ataques móveis(move o atacante)
+	- Energia
 	- Camera + Mapa aberto como butouden
+	- Ataques especiais (Kamehameha)
 	- Direção de personagem correta (sempre de olho no oponente)
 	- GUI
-	- Energia
 	- Fim do jogo (quando alguém morre)
 	- Mais conteúdo (personagens, ataques, etc)
 	- Feedback
