@@ -4,6 +4,9 @@ class_name Player
 signal Hit
 signal Die
 
+@export_category("world")
+@export var world: Node
+
 @export_category("character")
 @export var resource: CharResource
 @export var dummy: bool
@@ -55,5 +58,6 @@ func _physics_process(_delta: float) -> void:
 		if dir_x != 0 and dir_x_switch != dir_x:
 			$hitbox.scale.x *= -1
 			$Sprite2D.flip_h = !$Sprite2D.flip_h
+			$ProjectileMarker.position.x = -$ProjectileMarker.position.x
 			dir_x_switch = dir_x
 		move_and_slide()

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="CharResource" load_steps=7 format=3 uid="uid://c8mp8xavknf5a"]
+
+[ext_resource type="AnimationLibrary" uid="uid://buu7h0mwgyig" path="res://rsrc/chars/Xiaotsi/Xiaotsi.tres" id="1_2ni8l"]
+[ext_resource type="Script" path="res://scripts/Resources/Attack.gd" id="1_y4jdh"]
+[ext_resource type="Script" path="res://scripts/Resources/CharResource.gd" id="1_ybwwo"]
+[ext_resource type="PackedScene" uid="uid://cp4kv77afia6u" path="res://rsrc/chars/Xiaotsi/Projectile.tscn" id="2_0h0tq"]
+[ext_resource type="Texture2D" uid="uid://d2ric6wgvmk6u" path="res://rsrc/spr/Xiaotsi/preview.png" id="2_3oob7"]
+
+[sub_resource type="Resource" id="Resource_nvjfw"]
+script = ExtResource("1_y4jdh")
+animation = "atk1"
+trigger = "atk1"
+hidden = false
+sequence = []
+projectile = ExtResource("2_0h0tq")
+
+[resource]
+script = ExtResource("1_ybwwo")
+name = "Xiaotsi"
+icon = ExtResource("2_3oob7")
+animations = ExtResource("1_2ni8l")
+health = 100.0
+attacks = {
+"atk1": SubResource("Resource_nvjfw")
+}

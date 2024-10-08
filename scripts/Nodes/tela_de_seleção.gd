@@ -21,12 +21,16 @@ func _ready() -> void:
 				else:
 					printerr("Item não encontrado: " + char_res_file)
 			folder_name = dir.get_next()
-		
-		print(chars)
+
 		for char:CharResource in chars:
 			var btn: Button = Button.new()
 			btn.text = char.name
 			btn.icon = char.icon
+			btn.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+			btn.vertical_icon_alignment = VERTICAL_ALIGNMENT_BOTTOM
+			btn.expand_icon = false
+			btn.add_theme_stylebox_override("normal", load("res://rsrc/visual/button_select_player_style.tres"))
+			btn.add_theme_constant_override("h_separation", 7)
 			btn.pressed.connect(_on_pressed.bind(char))
 			$CenterContainer/GridContainer.add_child(btn)
 

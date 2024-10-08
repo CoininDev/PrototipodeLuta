@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dad4fp5d42row"]
+[gd_scene load_steps=4 format=3 uid="uid://dad4fp5d42row"]
 
-[ext_resource type="Script" path="res://scenes/tela_de_seleção.gd" id="1_oh4vl"]
+[ext_resource type="Script" path="res://scripts/Nodes/tela_de_seleção.gd" id="1_oh4vl"]
+[ext_resource type="Texture2D" uid="uid://b2iy00rygpu07" path="res://icon.svg" id="2_tnfv5"]
+[ext_resource type="StyleBox" uid="uid://bx3wkhsuu5tav" path="res://rsrc/visual/button_select_player_style.tres" id="2_uc537"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -22,3 +24,12 @@ grow_vertical = 2
 [node name="GridContainer" type="GridContainer" parent="CenterContainer"]
 layout_mode = 2
 columns = 8
+
+[node name="Button" type="Button" parent="CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 7
+theme_override_styles/normal = ExtResource("2_uc537")
+text = "Pinto"
+icon = ExtResource("2_tnfv5")
+icon_alignment = 1
+vertical_icon_alignment = 2

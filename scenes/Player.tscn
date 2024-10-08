@@ -1,11 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://brctfugvq5yex"]
+[gd_scene load_steps=23 format=3 uid="uid://brctfugvq5yex"]
 
 [ext_resource type="Script" path="res://scripts/Nodes/Player.gd" id="1_e8gub"]
-[ext_resource type="Shader" path="res://rsrc/shaders/chroma key.gdshader" id="2_qr2h4"]
+[ext_resource type="Shader" path="res://rsrc/visual/chroma key.gdshader" id="2_qr2h4"]
 [ext_resource type="Script" path="res://scripts/States/IdleStt.gd" id="3_1hyoa"]
 [ext_resource type="Texture2D" uid="uid://c1t3mpet770yc" path="res://rsrc/spr/Jukju/Idle.png" id="3_6gagl"]
 [ext_resource type="Script" path="res://scripts/Nodes/StateMachine.gd" id="3_kvlqf"]
 [ext_resource type="Script" path="res://scripts/States/MoveStt.gd" id="4_kvc8p"]
+[ext_resource type="AnimationLibrary" uid="uid://buu7h0mwgyig" path="res://rsrc/chars/Xiaotsi/Xiaotsi.tres" id="4_lpl4y"]
 [ext_resource type="Script" path="res://scripts/States/JumpStt.gd" id="5_co657"]
 [ext_resource type="Script" path="res://scripts/States/FallStt.gd" id="6_a3uad"]
 [ext_resource type="Script" path="res://scripts/States/HitstunStt.gd" id="7_nhkxi"]
@@ -15,6 +16,7 @@
 [ext_resource type="Script" path="res://scripts/States/DeadStt.gd" id="13_3q44w"]
 [ext_resource type="Script" path="res://scripts/States/FlyingIdleStt.gd" id="13_y6380"]
 [ext_resource type="Script" path="res://scripts/States/FlyingMoveStt.gd" id="14_qd07h"]
+[ext_resource type="Texture2D" uid="uid://b2iy00rygpu07" path="res://icon.svg" id="17_y5pc0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_getsc"]
 shader = ExtResource("2_qr2h4")
@@ -128,7 +130,8 @@ shape = SubResource("CapsuleShape2D_w0vau")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ym6nr")
+"": SubResource("AnimationLibrary_ym6nr"),
+"Xiaotsi": ExtResource("4_lpl4y")
 }
 
 [node name="hitbox" type="Area2D" parent="."]
@@ -174,10 +177,11 @@ script = ExtResource("8_6knus")
 player = NodePath("../..")
 anim = NodePath("../../AnimationPlayer")
 
-[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox", "hitbox_col", "player", "anim")]
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox", "hitbox_col", "projectile_marker", "player", "anim")]
 script = ExtResource("10_lwetg")
 hitbox = NodePath("../../hitbox")
 hitbox_col = NodePath("../../hitbox/CollisionShape2D")
+projectile_marker = NodePath("../../ProjectileMarker")
 player = NodePath("../..")
 anim = NodePath("../../AnimationPlayer")
 
@@ -205,3 +209,11 @@ text = "asdfasdddd"
 script = ExtResource("12_hg8h6")
 state_machine = NodePath("../StateMachine")
 metadata/_edit_use_anchors_ = true
+
+[node name="ProjectileMarker" type="Marker2D" parent="."]
+position = Vector2(69, -15)
+
+[node name="Sprite2D" type="Sprite2D" parent="ProjectileMarker"]
+visible = false
+scale = Vector2(0.128906, 0.117188)
+texture = ExtResource("17_y5pc0")

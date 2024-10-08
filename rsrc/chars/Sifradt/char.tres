@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharResource" load_steps=7 format=3 uid="uid://8j1fs43bl2sy"]
 
-[ext_resource type="AnimationLibrary" uid="uid://c2gage1y7mdfc" path="res://rsrc/chars/Sifradt/anim.tres" id="1_8x6kl"]
 [ext_resource type="Script" path="res://scripts/Resources/CharResource.gd" id="1_n5dky"]
+[ext_resource type="AnimationLibrary" uid="uid://c2gage1y7mdfc" path="res://rsrc/chars/Sifradt/Sifradt.tres" id="1_qvg7c"]
 [ext_resource type="Texture2D" uid="uid://cxl103u856rj4" path="res://rsrc/spr/Sifradt/barry.jpg" id="1_u2l2p"]
 [ext_resource type="Script" path="res://scripts/Resources/Attack.gd" id="2_rlhpx"]
 
@@ -23,7 +23,7 @@ sequence = []
 script = ExtResource("1_n5dky")
 name = "Sifradt"
 icon = ExtResource("1_u2l2p")
-animations = ExtResource("1_8x6kl")
+animations = ExtResource("1_qvg7c")
 health = 100.0
 attacks = {
 "atk1": SubResource("Resource_4olge"),

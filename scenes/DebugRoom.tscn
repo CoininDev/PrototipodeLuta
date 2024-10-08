@@ -1,12 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://dfmmqdn632br8"]
 
-[ext_resource type="Script" path="res://scenes/debug_room.gd" id="1_6pdb4"]
+[ext_resource type="Script" path="res://scripts/Debug/debug_room.gd" id="1_6pdb4"]
 [ext_resource type="PackedScene" uid="uid://brctfugvq5yex" path="res://scenes/Player.tscn" id="1_a16dp"]
-[ext_resource type="Resource" uid="uid://8j1fs43bl2sy" path="res://rsrc/chars/Sifradt/char.tres" id="2_6slia"]
 [ext_resource type="Resource" uid="uid://c83rnlbbtpdag" path="res://rsrc/chars/Jukju/char.tres" id="2_acet6"]
+[ext_resource type="Resource" uid="uid://c8mp8xavknf5a" path="res://rsrc/chars/Xiaotsi/char.tres" id="4_k6lcn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clt3a"]
-size = Vector2(1160, 94)
+size = Vector2(4054, 94)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_6pdb4")
@@ -16,16 +16,17 @@ position = Vector2(577, 490)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1, 3)
 shape = SubResource("RectangleShape2D_clt3a")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_a16dp")]
+[node name="CharacterBody2D" parent="." node_paths=PackedStringArray("world") instance=ExtResource("1_a16dp")]
 position = Vector2(345, -83)
 scale = Vector2(2, 2)
+world = NodePath("..")
 resource = ExtResource("2_acet6")
 
-[node name="CharacterBody2D2" parent="." instance=ExtResource("1_a16dp")]
+[node name="CharacterBody2D2" parent="." node_paths=PackedStringArray("world") instance=ExtResource("1_a16dp")]
 position = Vector2(737, 373)
 scale = Vector2(2, 2)
-resource = ExtResource("2_6slia")
+world = NodePath("..")
+resource = ExtResource("4_k6lcn")
 dummy = true
