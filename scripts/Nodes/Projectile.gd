@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	for body in bodies:
 		print(body)
 		if body is Player and body != agent: 
-			body.damage(dano)
+			body.damage(dano, agent.current_attack.hit_push_force)
 			queue_free()
 
 

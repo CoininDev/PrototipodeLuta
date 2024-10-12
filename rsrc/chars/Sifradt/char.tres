@@ -10,14 +10,18 @@ script = ExtResource("2_rlhpx")
 animation = "atk1"
 trigger = "atk1"
 hidden = false
-sequence = []
+sequences = []
+move_forces = [Vector2(9000, 0)]
+hit_push_force = Vector2(0, 0)
 
 [sub_resource type="Resource" id="Resource_qjukj"]
 script = ExtResource("2_rlhpx")
 animation = "atk2"
 trigger = "atk2"
 hidden = false
-sequence = []
+sequences = []
+move_forces = []
+hit_push_force = Vector2(99999, 0)
 
 [resource]
 script = ExtResource("1_n5dky")

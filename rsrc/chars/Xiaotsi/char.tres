@@ -11,8 +11,10 @@ script = ExtResource("1_y4jdh")
 animation = "atk1"
 trigger = "atk1"
 hidden = false
-sequence = []
+sequences = []
 projectile = ExtResource("2_0h0tq")
+move_forces = []
+hit_push_force = Vector2(0, 0)
 
 [resource]
 script = ExtResource("1_ybwwo")

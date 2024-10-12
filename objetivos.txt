@@ -10,12 +10,12 @@ Coisas feitas:
 	- Ataques em corrente (um puxa o outro) + Combos
 	- Animações e integração de sprites
 	- Tela de seleção
-
-Coisas em processo:
 	- Projéteis
 
-Coisas para fazer:
+Coisas em processo:
 	- Ataques com empurrão(move o alvo) + Ataques móveis(move o atacante)
+
+Coisas para fazer:
 	- Energia
 	- Camera + Mapa aberto como butouden
 	- Ataques especiais (Kamehameha)

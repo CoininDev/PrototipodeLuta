@@ -18,6 +18,12 @@ func enter():
 	cancelable = false
 	projectile = player.current_attack.projectile
 
+func toggle_link(val: bool):
+	linkable = val
+
+func toggle_cancel(val:bool):
+	cancelable = val
+
 func launch(dano:float):
 	var launch : Projectile = projectile.instantiate()
 	launch.agent = player
@@ -30,17 +36,14 @@ func launch(dano:float):
 func set_launch_pos(pos: Vector2):
 	launch_pos = pos
 
+func move(move_id: int):
+	player.velocity += player.current_attack.move_forces[move_id] * Vector2(player.dir_x_switch, 0)
+
 func attack(dano:float):
 	var bodies = hitbox.get_overlapping_bodies()
 	for body in bodies:
 		if body is Player and body != player: 
-			body.damage(dano)
-
-func toggle_link(val: bool):
-	linkable = val
-
-func toggle_cancel(val:bool):
-	cancelable = val
+			body.damage(dano, player.current_attack.hit_push_force)
 
 func physics_update(delta: float):
 	if !player.is_on_floor():

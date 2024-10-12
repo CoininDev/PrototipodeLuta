@@ -20,15 +20,18 @@ var dir_x: int
 var dir_y: int
 var dir_x_switch: int
 
-func damage(dano:float) -> void:
+func damage(dano:float, hit_push:Vector2) -> void:
 	emit_signal("Hit")
+	velocity += hit_push * Vector2(dir_x_switch, 0)
+	print(velocity)
 	if defesa:
 		vida -= dano * 0.75
 		return
 	vida -= dano
 	if vida <= 0:
 		die()
-	print(vida)
+	#print(vida)
+
 
 func _ready() -> void:
 	dir_x_switch = 1
