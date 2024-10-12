@@ -25,3 +25,9 @@ func anim_name(s: String) -> String:
 	if player.resource:
 		return player.resource.name + "/" + s
 	return ""
+
+func gravity(delta: float):
+	if !player.is_on_floor():
+		player.velocity += player.get_gravity() * delta
+	else:
+		player.velocity.y = 0

@@ -11,7 +11,7 @@ animation = "atk1"
 trigger = "atk1"
 hidden = false
 sequences = []
-move_forces = [Vector2(9000, 0)]
+move_forces = [Vector2(900, 0)]
 hit_push_force = Vector2(0, 0)
 
 [sub_resource type="Resource" id="Resource_qjukj"]

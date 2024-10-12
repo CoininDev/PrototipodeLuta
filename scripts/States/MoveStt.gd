@@ -23,6 +23,10 @@ func update(delta:float):
 	
 	check_attacks(false)
 
+func exit():
+	#player.velocity.x = 0
+	pass
+
 func _on_hit():
 	emit_signal("Transitioned", self, "hitstun")
 

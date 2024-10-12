@@ -10,7 +10,8 @@ var cancelable:bool = false
 var launch_pos: Vector2 = Vector2.ZERO
 
 func enter():
-	#player.velocity.x = 0
+	if player.is_on_floor():
+		player.velocity.x = 0
 	anim.stop(true)
 	anim.play(anim_name(player.current_attack.animation))
 	anim.animation_finished.connect(_on_finish)
@@ -36,8 +37,8 @@ func launch(dano:float):
 func set_launch_pos(pos: Vector2):
 	launch_pos = pos
 
-func move(move_id: int):
-	player.velocity += player.current_attack.move_forces[move_id] * Vector2(player.dir_x_switch, 0)
+func move(force: Vector2):
+	player.velocity = force * Vector2(player.dir_x_switch, 0)
 
 func attack(dano:float):
 	var bodies = hitbox.get_overlapping_bodies()
@@ -46,13 +47,10 @@ func attack(dano:float):
 			body.damage(dano, player.current_attack.hit_push_force)
 
 func physics_update(delta: float):
-	if !player.is_on_floor():
-		player.velocity += player.get_gravity() * delta
-	else:
-		player.velocity.x = 0
-	
+	gravity(delta)
+
 	if linkable:
-		for atk_name in player.current_attack.sequence:
+		for atk_name in player.current_attack.sequences:
 			var atk = player.resource.attacks[atk_name]
 			if Input.is_action_just_pressed(atk.trigger):
 				player.current_attack = atk

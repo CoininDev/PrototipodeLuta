@@ -7,7 +7,7 @@ func enter():
 	anim.play(anim_name("jump"))
 
 func physics_update(delta: float):
-	player.velocity += player.get_gravity() * delta
+	gravity(delta)
 	
 	if player.velocity.y > 0:
 		emit_signal("Transitioned", self, "fall")

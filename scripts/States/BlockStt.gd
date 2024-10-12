@@ -11,6 +11,9 @@ func update(_delta:float):
 	if Input.is_action_just_released("down"):
 		emit_signal("Transitioned", self, "idle")
 
+func physics_update(delta:float):
+	gravity(delta)
+
 func exit():
 	player.defesa = false
 	anim.play_backwards(anim_name("block"))
